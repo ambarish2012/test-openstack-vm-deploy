@@ -10,7 +10,7 @@ resources:
       
   - name: openstack_app_cluster
     type: cluster
-    integration: vm_nodes_int
+    integration: open_stack
     
 jobs:
 
