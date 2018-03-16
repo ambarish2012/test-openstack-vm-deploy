@@ -1,0 +1,28 @@
+resources:
+
+  - name: openstack_app_repo
+    type: gitRepo
+    integration: github
+    versionTemplate:
+      sourceName: ambarish2012/test-openstack-vm-deploy # the full repository name (owner and repo)
+      branch: gitRepo # This will create the first version for the gitRepo branch
+      buildOnCommit: true 
+      
+  - name: openstack_app_cluster
+    type: cluster
+    integration: vm_nodes_int
+    
+jobs:
+
+  - name: openstack_app_deploy
+    type: deploy
+    steps:
+      - IN: openstack_app_repo
+      - IN: openstack_app_cluster
+      - TASK:
+        - script: rm -r ~/openstack_app_repo
+        - script: mv /tmp/shippable/openstack_app_repo/gitRepo ~/openstack_app_repo
+        - script: cd ~/openstack_app_repo
+        - script: ls -l
+        
+        
