@@ -20,7 +20,7 @@ jobs:
       - IN: openstack_app_repo
       - IN: openstack_app_cluster
       - TASK:
-        - script: rm -r ~/openstack_app_repo
+        - script: rm -r ~/openstack_app_repo || true
         - script: mv /tmp/shippable/openstack_app_repo/gitRepo ~/openstack_app_repo
         - script: cd ~/openstack_app_repo
         - script: ls -l
