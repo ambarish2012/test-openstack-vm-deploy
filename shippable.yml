@@ -5,7 +5,7 @@ resources:
     integration: github
     versionTemplate:
       sourceName: ambarish2012/test-openstack-vm-deploy # the full repository name (owner and repo)
-      branch: gitRepo # This will create the first version for the gitRepo branch
+      branch: master # This will create the first version for the gitRepo branch
       buildOnCommit: true 
       
   - name: openstack_app_cluster
